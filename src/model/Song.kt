@@ -1,6 +1,9 @@
 package model
 
-class Song (name : String, path: String, year: String) {
-
-
+class Song () {
+    var name : String = ""
+    var path: String = ""
+    var year: String = ""
+    var cover : String = ""
+    var artist: String  = ""
 }

@@ -1,4 +1,10 @@
 package model
 
-class Singleton {
+import model.logic.SongsProducer
+
+object Singleton {
+
+    init {
+        SongsProducer.produce
+    }
 }
