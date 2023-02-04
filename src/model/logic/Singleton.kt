@@ -1,10 +1,10 @@
-package model
+package model.logic
 
 import model.logic.SongsProducer
 
 object Singleton {
 
     init {
-        SongsProducer.produce
+        //SongsProducer.
     }
 }

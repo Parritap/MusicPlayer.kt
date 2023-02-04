@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import model.Song;
+import model.logic.data.Song;
 
 /**
  * Created by Mahmoud Hamwi on 02-Feb-21.

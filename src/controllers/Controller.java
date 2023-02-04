@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import model.Song;
+import model.logic.data.Song;
 
 import java.io.IOException;
 import java.net.URL;
