@@ -45,9 +45,7 @@ class Utils {
                 else (if (isSong(i.path)) list.add(i.path))
             }
         }
-    } //
-
-
+    }
 }
 
 fun main(args: Array<String>) {

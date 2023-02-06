@@ -1,12 +1,16 @@
 package model.logic
 
 import model.logic.data.Song
+import org.jaudiotagger.audio.AudioFileIO
+import org.jaudiotagger.tag.FieldKey
+import org.jaudiotagger.tag.datatype.Artwork
 import java.io.File
 
 /**
  * This class is responsible for producing songs to the UI can show them when the app starts.
  */
-class SongsProducer : Producer<Song> {
+object SongsProducer : Producer<Song> {
+
 
     //TODO We have to tell the producer where to find the songs
 
@@ -16,7 +20,7 @@ class SongsProducer : Producer<Song> {
     /**
      * This method is responsible for finding the songs in the device and return them so the can be used by the UI.
      */
-    override fun Produce(): Unit {
+    override fun produce(): Unit {
         searchSongs(songsPath);
     }
 
@@ -24,14 +28,28 @@ class SongsProducer : Producer<Song> {
         return this.songsFound;
     }
 
-
+    /**
+     * This method is responsible for finding the songs in the given path and add them to the list of songs.
+     */
     private fun searchSongs(songsPath: String) {
-     val musicDir = File(songsPath) //
-     val listOfFiles = musicDir.listFiles()
+        val listOfSongs = Utils.findSongsInPath(songsPath)
+        val listOfSongObjects = listOfSongs.map { convertFileToSong(it) }
+        songsFound.addAll(listOfSongObjects)
+    }
 
-     for (aux : File in listOfFiles){
-         if (aux.isDirectory) ""
-     }
+    /**
+     * Converts the given path into a Song and the returns it.
+     * @param path
+     */
+    fun convertFileToSong(path: String): Song {
+        val audioFile = AudioFileIO.read(File(path))
+        val tag = audioFile.tag
+        val title = tag.getFirst(FieldKey.TITLE)
+        val artist = tag.getFirst(FieldKey.ARTIST)
+        val album = tag.getFirst(FieldKey.ALBUM)
+        val year = tag.getFirst(FieldKey.YEAR)
+        val artWork: Artwork? = tag.firstArtwork // return null if no artwork exists.
 
+        return Song(path, title, year, artist, album, artWork!!) //Here Im forcing a null. Be careful
     }
 }

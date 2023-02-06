@@ -1,6 +1,6 @@
 package model.logic
 
 interface Producer <T> {
-    fun Produce() : Unit;
+    fun produce() : Unit;
     fun getProducts() : MutableList<T>
 }

@@ -22,7 +22,7 @@ public class SongController {
     public void setData(Song song){
         Image image = new Image(getClass().getResourceAsStream(song.getCover()));
         img.setImage(image);
-        songName.setText(song.getName());
+        songName.setText(song.getTitle());
         artist.setText(song.getArtist());
     }
 }
