@@ -7,6 +7,5 @@ interface UIElement   {
 
     abstract val pane : Pane
 
-    fun getPane () : Pane
 
 }

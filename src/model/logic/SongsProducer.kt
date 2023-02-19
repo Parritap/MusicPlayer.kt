@@ -12,9 +12,10 @@ import java.io.File
 object SongsProducer : Producer<Song> {
 
 
+
     //TODO We have to tell the producer where to find the songs
 
-    val songsPath: String = PathFinder.getPath(PathFinder.SONG())
+    val songsPath: String = PathFinder.getMusicFolderPath()
     val songsFound: MutableList<Song> = mutableListOf();
 
     /**
@@ -48,8 +49,8 @@ object SongsProducer : Producer<Song> {
         val artist = tag.getFirst(FieldKey.ARTIST)
         val album = tag.getFirst(FieldKey.ALBUM)
         val year = tag.getFirst(FieldKey.YEAR)
-        val artWork: Artwork? = tag.firstArtwork // return null if no artwork exists.
+        val artWork: Artwork = Utils.getArtWorkNotNull(audioFile)
 
-        return Song(path, title, year, artist, album, artWork!!) //Here Im forcing a null. Be careful
+        return Song(path, title, year, artist, album, artWork)
     }
 }

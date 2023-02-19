@@ -6,10 +6,15 @@ package model.logic
 sealed class PathFinder {
     class SONG : PathFinder();
 
+    //Companion objects son todas las clases y atributos estaticos de una clase.
+    companion object {
 
-    companion object{
-        fun getPath (findable : PathFinder) : String = when (findable) {
-            is SONG -> "/home/Parritap/Music";
+        fun getMusicFolderPath(): String = when (Singleton.operatingSystem) {
+
+            is OS.LINUX -> "/home/${System.getProperty("user.name")}/Music";
+            is OS.MAC -> "/Users/${System.getProperty("user.name")}/Music";
+            is OS.WINDOWS -> "C:\\Users\\${System.getProperty("user.name")}\\Music";
+            is OS.UNKNOWN -> throw Exception("Unknown OS");
         }
     }
 }

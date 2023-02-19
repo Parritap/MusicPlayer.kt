@@ -1,9 +1,27 @@
 package model.logic
 
+import org.jaudiotagger.audio.AudioFile
+import org.jaudiotagger.audio.AudioFileIO
+import org.jaudiotagger.audio.asf.util.TagConverter
+import org.jaudiotagger.tag.datatype.Artwork
 import java.io.File
 
 class Utils {
     companion object {
+
+        fun detectOperatingSystem(): String {
+            val osName = System.getProperty("os.name").toLowerCase()
+
+            return when {
+                osName.contains("mac") -> "Mac"
+                osName.contains("linux") -> "Linux"
+                osName.contains("windows") -> "Windows"
+                else -> "Unknown"
+            }
+        }
+
+
+
         /**
          * Verifies if a String has de extensions listed in the enum SongsExtensions.
          */
@@ -45,12 +63,26 @@ class Utils {
                 else (if (isSong(i.path)) list.add(i.path))
             }
         }
+
+        fun getArtWorkNotNull(audioFile : AudioFile): Artwork {
+
+            val art : Artwork? = audioFile.tag.firstArtwork;
+            if (art == null) {
+                return  Artwork.createArtworkFromFile(File("/home/juanestebanparraparra/IdeaProjects/MusicPlayer.kt/src/resources/myResources/songGenericImage.png"))
+            } else{
+                return art;
+            }
+
+        }
     }
 }
 
+
+
 fun main(args: Array<String>) {
-    val list = Utils.findSongsInPath(PathFinder.getPath(PathFinder.SONG()))
-    for (i in list){
+    val list = Utils.findSongsInPath(PathFinder.getMusicFolderPath())
+    for (i in list) {
         println(i)
     }
 }
+

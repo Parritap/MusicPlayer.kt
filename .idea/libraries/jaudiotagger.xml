@@ -8,7 +8,7 @@
       <root url="jar://$MAVEN_REPOSITORY$/org/jaudiotagger/2.0.3/jaudiotagger-2.0.3-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://$USER_HOME$/.ideaLibSources/jaudiotagger-2.0.3-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/jaudiotagger/2.0.3/jaudiotagger-2.0.3-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
