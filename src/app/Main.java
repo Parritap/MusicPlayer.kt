@@ -18,13 +18,11 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-      //  Singleton singleton = Singleton.INSTANCE;
-       Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../view/sample.fxml")));
-       Scene scene = new Scene(root);
-       stage.setTitle("Spotify");
-       stage.setScene(scene);
-       stage.show();
+        //  Singleton singleton = Singleton.INSTANCE;
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../view/sample.fxml")));
+        Scene scene = new Scene(root);
+        stage.setTitle("Spotify");
+        stage.setScene(scene);
+        stage.show();
     }
-
-
 }
