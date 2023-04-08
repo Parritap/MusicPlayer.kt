@@ -2,25 +2,45 @@ package model.logic.data
 
 import org.jaudiotagger.tag.datatype.Artwork
 
-class Song(
-    var path: String = "",
-    var title: String = "",
-    var year: String = "",
-    var artist: String = "",
-    var album: String = ""
+//class Song(
+//    var path: String = "",
+//    var title: String = "",
+//    var year: String = "",
+//    var artist: String = "",
+//    var album: String = ""
+//
+//) {
+//    var cover : String = ""
+//    var artWork: Artwork? = null
+//
+//    constructor(path: String, name: String, year: String, artist: String, album: String, _artWork: Artwork) : this(
+//        path,
+//        name,
+//        year,
+//        artist,
+//        album
+//    ) {
+//        this.artWork = _artWork
+//    }
 
-) {
-    var cover : String = ""
+
+class Song (){
+    var path: String = ""
+    var title: String = ""
+    var year: String = ""
+    var artist: String = ""
+    var album: String = ""
     var artWork: Artwork? = null
 
-    constructor(path: String, name: String, year: String, artist: String, album: String, _artWork: Artwork) : this(
-        path,
-        name,
-        year,
-        artist,
-        album
-    ) {
-        this.artWork = _artWork
+
+    constructor (path: String, title : String, year : String, artist : String, album : String, artwork: Artwork) : this(){
+        this.path = path
+        this.title = title
+        this.year = year
+        this.artist = artist
+        this.album = album
+        this.artWork = artwork
     }
 }
+
 

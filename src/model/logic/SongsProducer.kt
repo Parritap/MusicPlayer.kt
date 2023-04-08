@@ -1,6 +1,7 @@
 package model.logic
 
 import model.logic.data.Song
+import model.logic.interfaces.Producer
 import org.jaudiotagger.audio.AudioFileIO
 import org.jaudiotagger.tag.FieldKey
 import org.jaudiotagger.tag.datatype.Artwork

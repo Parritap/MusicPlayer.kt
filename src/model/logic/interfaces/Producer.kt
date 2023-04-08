@@ -1,4 +1,4 @@
-package model.logic
+package model.logic.interfaces
 
 interface Producer <T> {
     fun produce() : Unit
