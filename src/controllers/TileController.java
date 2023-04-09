@@ -20,6 +20,7 @@ public class TileController {
 
     public void setData (Song song){
         title.setText(song.getTitle());
-        ImageView.
+        img.setImage(song.getImageFromArtWork());
+        details.setText( song.getArtist());
     }
 }

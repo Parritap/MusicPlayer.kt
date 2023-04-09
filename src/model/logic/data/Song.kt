@@ -1,28 +1,8 @@
 package model.logic.data
 
+import javafx.embed.swing.SwingFXUtils
+import javafx.scene.image.Image
 import org.jaudiotagger.tag.datatype.Artwork
-
-//class Song(
-//    var path: String = "",
-//    var title: String = "",
-//    var year: String = "",
-//    var artist: String = "",
-//    var album: String = ""
-//
-//) {
-//    var cover : String = ""
-//    var artWork: Artwork? = null
-//
-//    constructor(path: String, name: String, year: String, artist: String, album: String, _artWork: Artwork) : this(
-//        path,
-//        name,
-//        year,
-//        artist,
-//        album
-//    ) {
-//        this.artWork = _artWork
-//    }
-
 
 class Song (){
     var path: String = ""
@@ -40,6 +20,16 @@ class Song (){
         this.artist = artist
         this.album = album
         this.artWork = artwork
+    }
+
+    fun getImageFromArtWork () : Image{
+        var img : Image
+        try {
+            img =  SwingFXUtils.toFXImage(artWork?.image,null);
+        } catch (e: Exception) {
+            img = Image("../../../resources/myResources/littleDoggy.png")
+        }
+        return img;
     }
 }
 
