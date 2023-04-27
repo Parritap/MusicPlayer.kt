@@ -13,9 +13,6 @@ import java.io.File
 object SongsProducer : Producer<Song> {
 
 
-
-    //TODO We have to tell the producer where to find the songs
-
     val songsPath: String = PathFinder.getMusicFolderPath()
     val songsFound: MutableList<Song> = mutableListOf();
 

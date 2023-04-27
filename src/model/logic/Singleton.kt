@@ -8,6 +8,7 @@ package model.logic
 object Singleton {
 
     val operatingSystem: OS = OS.detectOperatingSystem();
+    val songsFound = SongsProducer.getProducts() //Songs that are inside music folder of the device.
 
     //La palabra reservada init sirve para forzar a una clase (cualquiera, incluso singleton) a
     //ejecutar una porción de código UNICAMENTE CUANDO SEA INSTANCIADA. Funciona para data classes, object classes, sealed classes, etc...

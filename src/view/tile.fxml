@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,26 +10,41 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="467.0" prefWidth="354.0" styleClass="root" stylesheets="@../css/tile.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FXSongProducer">
+<AnchorPane prefHeight="285.0" prefWidth="197.0" styleClass="root" stylesheets="@../css/tile.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.TileController">
    <children>
-      <VBox prefHeight="413.0" prefWidth="354.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+      <VBox alignment="CENTER" prefHeight="261.0" prefWidth="197.0">
          <children>
-            <ImageView id="img" fx:id="img" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" style="-: 40;">
+            <ImageView id="img" fx:id="img" fitHeight="182.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/myResources/songGenericImage.png" />
                </image>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
             </ImageView>
-            <Label fx:id="title" prefHeight="57.0" prefWidth="306.0" text="TITLE">
+            <Label fx:id="title" prefHeight="32.0" prefWidth="172.0" text="TITLE">
                <font>
-                  <Font size="23.0" />
+                  <Font size="14.0" />
                </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </Label>
-            <Text fx:id="details" fill="#dadada" strokeType="OUTSIDE" strokeWidth="0.0" text="Details Lorem Ipsum" wrappingWidth="305.13000106811523">
+            <Text fx:id="details" fill="#dadada" strokeType="OUTSIDE" strokeWidth="0.0" text="Details Lorem Ipsum" wrappingWidth="174.13000106811523">
                <font>
-                  <Font size="20.0" />
+                  <Font size="17.0" />
                </font>
             </Text>
          </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </VBox>
    </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
 </AnchorPane>

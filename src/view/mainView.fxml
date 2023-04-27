@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" styleClass="primary_color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" >
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1500.0" styleClass="primary_color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainViewController">
    <left>
       <VBox prefHeight="200.0" prefWidth="235.0" spacing="20.0" styleClass="secondary-color" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
          <children>
@@ -200,14 +200,14 @@
             </HBox>
             <ScrollPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: transparent;" VBox.vgrow="ALWAYS">
                <content>
-                  <VBox prefHeight="570.0" prefWidth="1665.0" spacing="10.0">
+                  <VBox prefHeight="720.0" prefWidth="1665.0" spacing="10.0">
                      <children>
                         <Label text="Recently Played" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <ScrollPane fitToWidth="true" minViewportHeight="270.0" prefHeight="229.0" prefViewportWidth="10.0" prefWidth="1059.0" style="-fx-background-color: transparent;">
+                        <ScrollPane fitToWidth="true" minViewportHeight="270.0" prefHeight="429.0" prefViewportWidth="10.0" prefWidth="1625.0" style="-fx-background-color: transparent;">
                            <content>
                               <HBox fx:id="recentlyPlayedContainer" spacing="30.0" />
                            </content>

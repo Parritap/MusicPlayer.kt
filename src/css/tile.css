@@ -2,16 +2,13 @@
 .root {
     /* Set background color */
     -fx-background-color: #525252;
-    -fx-border-radius: 50%;
-    -fx-background-radius: 30;
+    -fx-background-radius: 20;
 }
 
 /* Style for the VBox container */
 .vbox {
     /* Add padding to top, right, and bottom */
     -fx-padding: 15px;
-    /* Set spacing between children elements */
-    -fx-border-radius: 50%;
 }
 
 
@@ -28,7 +25,4 @@
 #sqr_image{
     /* Add margin to the bottom */
     -fx-margin-bottom: 10px;
-    -fx-image-border-radius: 50%;
-    /* Add a hover effect when the mouse is over the image */
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 0);
 }
