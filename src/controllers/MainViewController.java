@@ -19,15 +19,16 @@ public class MainViewController implements Initializable {
     private HBox favoriteContainer;
 
     @FXML
-    private HBox recentlyPlayedContainer;
+    private HBox recentlyPlayedContainer; //Este es el slide donde se va a contener todas las canciones.
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for (Song s : Singleton.INSTANCE.getSongsFound()
+        for (Song song : Singleton.INSTANCE.getSongsFound()
         ) {
             try {
-                recentlyPlayedContainer.getChildren().add(generateTile(s));
+                //La siguiente linea añade un anchor pane al slide con la información de la canción.
+                recentlyPlayedContainer.getChildren().add(this.generateTile(song));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -35,13 +36,18 @@ public class MainViewController implements Initializable {
 
     }
 
-
+    /**
+     * Este método se encarga de generar un tile con la información de la canción.
+     * @param song
+     * @return AnchorPane con el arte de la canción y su titulo, así como los compositores.
+     * @throws IOException
+     */
     private AnchorPane generateTile(Song song) throws IOException {
         FXMLLoader root = new FXMLLoader();
         root.setLocation(Objects.requireNonNull(getClass().getResource("../view/tile.fxml")));
         AnchorPane anchorPane = root.load();
         TileController tileController = root.getController();
-        tileController.setData(song);
+        tileController.setData(song); //Ya una vez creada la plantilla (anchor pane) se le asigna la información de la canción mediante su respectivo controlador.
         return anchorPane;
     }
 
