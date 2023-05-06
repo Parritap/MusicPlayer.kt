@@ -24,7 +24,7 @@ public class MainViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for (Song song : Singleton.INSTANCE.getSongsFound()
+        for (Song song : Singleton.getSongsFound()
         ) {
             try {
                 //La siguiente linea añade un anchor pane al slide con la información de la canción.

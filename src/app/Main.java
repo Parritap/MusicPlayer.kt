@@ -12,13 +12,13 @@ import java.util.Objects;
 public class Main extends Application {
 
     public static void main(String[] args) {
+        Singleton.getInstance();
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        //  Singleton singleton = Singleton.INSTANCE;
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../view/mainView.fxml")));
         Scene scene = new Scene(root);
         stage.setTitle("Spotify");
