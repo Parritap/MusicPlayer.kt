@@ -15,30 +15,30 @@ import java.util.List;
 public class SongsProducer {
 
 
-    private static String songsPath = PathFinder.getMusicFolderPath();
-    private static ArrayList<Song> songsFound = new ArrayList<Song>();
-
-    public SongsProducer() throws Exception {
-    }
+    private static final String songsPath = PathFinder.getMusicFolderPath();
+    private static final ArrayList<Song> songsFound = new ArrayList<>();
 
     /**
      * This method is responsible for finding the songs in the device and return them so the can be used by the UI.
      */
     public static void produce() {
-        searchSongs(songsPath);
+        searchSongs();
     }
 
 
     public static ArrayList<Song> getProducts() {
+        if (songsFound.isEmpty()) {
+            produce();
+        }
         return songsFound;
     }
 
     /**
      * This method is responsible for finding the songs in the given path and add them to the list of songs.
      */
-    private static void searchSongs(String songsPath) {
-        List<String> listOfSongs = Utils.findSongsInPath(songsPath);
-        List<Song> listOfSongObjects = new ArrayList<Song>();
+    private static void searchSongs() {
+        List<String> listOfSongs = Utils.findSongsInPath(SongsProducer.songsPath);
+        List<Song> listOfSongObjects = new ArrayList<>();
         for (String songPath : listOfSongs) {
             listOfSongObjects.add(convertFileToSong(songPath));
         }

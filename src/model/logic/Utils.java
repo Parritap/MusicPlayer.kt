@@ -30,10 +30,10 @@ public class Utils {
      * Verifies if a String has the extensions listed in the enum SongsExtensions.
      */
     public static boolean isSong(String file) {
-        int index = file.split("\\.").length - 1;
-        String ext = file.split("\\.")[index];
-        for (SongsExtensions i : SongsExtensions.listOfExtensions) {
-            if (ext.equals(i)) return true;
+        int index = file.split("\\.").length - 1; //Esto apunta a la ultima posicion del array, que es la extension
+        String ext = file.split("\\.")[index]; //Esto ya es la extension
+        for (SongsExtensions i : SongsExtensions.values()) {
+            if (i.toString().equals(ext)) return true;
         }
         return false;
     }

@@ -10,7 +10,7 @@ public class Singleton {
 
     private static Singleton instance = null;
     private final OS operatingSystem = OS.detectOperatingSystem();
-    private ArrayList<Song> songsFound =  SongsProducer.getProducts();
+    private final ArrayList<Song> songsFound =  SongsProducer.getProducts();
 
     private Singleton() {
         // private constructor to prevent instantiation
