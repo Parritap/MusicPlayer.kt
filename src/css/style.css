@@ -30,3 +30,26 @@
 .scroll-pane > .viewport{
     -fx-background-color: #181818;
 }
+
+.view-anchorPane{
+    -fx-background-color: linear-gradient(to bottom, #3a207c, #150e28);
+}
+
+.text-field {
+    -fx-background-color: #282828;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: "Circular Spotify Tx T";
+    -fx-padding: 10px 15px;
+}
+
+.text-field:focused {
+    -fx-border-color: #1DB954;
+}
+
+.text-field:hover {
+    -fx-border-color: white;
+}
+
