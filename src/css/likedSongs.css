@@ -1,0 +1,73 @@
+.primary_color{
+    -fx-background-color: #181818;
+}
+
+.secondary-color{
+    -fx-background-color: #121212;
+}
+
+.selected{
+    -fx-border-color: #1ED760;
+    -fx-border-width: 0 0 0 5
+}
+
+.top-border{
+    -fx-border-color: #A1A1A1;
+    -fx-border-width: 1 0 0 0;
+}
+
+.search-container{
+    -fx-background-color: #fff;
+    -fx-background-radius: 100;
+}
+
+.upgrade-button{
+    -fx-background-color: rgba(0,0,0,0);
+    -fx-border-color: #fff;
+    -fx-border-radius: 50;
+}
+
+.scroll-pane > .viewport{
+    -fx-background-color: #181818;
+}
+
+.view-anchorPane{
+    -fx-background-color: linear-gradient(to bottom, #3a207c, #150e28);
+}
+
+.text-field {
+    -fx-background-color: #282828;
+    -fx-background-radius: 10;
+    -fx-border-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-family: "Circular Spotify Tx T";
+    -fx-padding: 10px 15px;
+}
+
+.text-field:focused {
+    -fx-border-color: #1DB954;
+}
+
+.text-field:hover {
+    -fx-border-color: white;
+}
+
+.label {
+    -fx-font-family: "Circular Spotify Tx T Light", sans-serif;
+    -fx-font-size: 25px;
+    -fx-text-fill: #b3b3b3;
+}
+
+
+.label:selected {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+
+.titleLabel {
+    -fx-font-family: "JetBrains Mono ExtraBold";
+    -fx-font-size: 100px;
+    -fx-text-fill: #ffffff;
+}

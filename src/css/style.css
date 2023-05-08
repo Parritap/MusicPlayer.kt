@@ -55,13 +55,10 @@
 
 .label {
     -fx-font-family: "Circular Spotify Tx T Light", sans-serif;
-    -fx-font-size: 25px;
+    -fx-font-size: 15px;
     -fx-text-fill: #b3b3b3;
 }
 
-.label:hover {
-    -fx-text-fill: #ffffff;
-}
 
 .label:selected {
     -fx-text-fill: #ffffff;
