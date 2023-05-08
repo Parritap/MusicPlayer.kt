@@ -6,14 +6,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1200.0" styleClass="root" stylesheets="@../css/horizontalImage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1200.0" styleClass="root" stylesheets="@../css/horizontalImage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller=" controllers.HorizontalSongController">
    <children>
-      <Label alignment="CENTER" text="1">
+      <Label fx:id="lbl_number" alignment="CENTER" text="1">
          <HBox.margin>
             <Insets left="30.0" top="20.0" />
          </HBox.margin>
       </Label>
-      <ImageView fitHeight="57.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="songImage" fitHeight="57.0" fitWidth="57.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets left="20.0" top="10.0" />
          </HBox.margin>
@@ -21,17 +21,17 @@
             <Image url="@../resources/likedSongs.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" stylesheets="@../css/horizontalImage.css" text="Over the Hills and Far Away">
+      <Label fx:id="lbl_title" alignment="CENTER" stylesheets="@../css/horizontalImage.css" text="Over the Hills and Far Away">
          <HBox.margin>
             <Insets left="30.0" top="20.0" />
          </HBox.margin>
       </Label>
-      <Label alignment="CENTER" text="Album">
+      <Label fx:id="lbl_album" alignment="CENTER" text="Album">
          <HBox.margin>
             <Insets left="100.0" top="20.0" />
          </HBox.margin>
       </Label>
-      <Label alignment="CENTER" text="Date Added">
+      <Label fx:id="lbl_date" alignment="CENTER" text="Date Added">
          <HBox.margin>
             <Insets left="100.0" top="20.0" />
          </HBox.margin>
