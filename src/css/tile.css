@@ -5,6 +5,11 @@
     -fx-background-radius: 20;
 }
 
+.root:hover {
+    /* Set background color when hovered */
+    -fx-background-color: #6c6c6c;
+}
+
 /* Style for the VBox container */
 .vbox {
     /* Add padding to top, right, and bottom */
@@ -18,8 +23,6 @@
     /*Change the color of the title to white*/
     -fx-font-size: 23px;
     -fx-text-fill: #e3e3e3;
-    /* Add a hover effect when the mouse is over the label */
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0, 0, 0);
 }
 
 #sqr_image{

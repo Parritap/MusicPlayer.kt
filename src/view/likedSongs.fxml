@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1665.0" styleClass="primary_color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0" prefWidth="1665.0" styleClass="primary_color" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <AnchorPane prefHeight="345.0" prefWidth="1665.0" styleClass="view-anchorPane" stylesheets="@../css/style.css">
          <children>
@@ -20,7 +19,7 @@
                   <Image url="@../resources/likedSongs.png" />
                </image>
             </ImageView>
-            <Label layoutX="459.0" layoutY="100.0" prefHeight="146.0" prefWidth="671.0" text="Liked Songs" textFill="WHITE">
+            <Label layoutX="459.0" layoutY="100.0" prefHeight="146.0" prefWidth="671.0" styleClass="titleLabel" stylesheets="@../css/style.css" text="Liked Songs" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="JetBrains Mono ExtraBold" size="90.0" />
                </font>
@@ -34,7 +33,7 @@
                   <Image url="@../resources/buttons/playButton.png" />
                </image>
                <HBox.margin>
-                  <Insets left="100.0" />
+                  <Insets left="30.0" />
                </HBox.margin>
             </ImageView>
             <ImageView fitHeight="37.0" fitWidth="37.0">
@@ -42,7 +41,7 @@
                   <Image url="@../resources/buttons/loupe.png" />
                </image>
                <HBox.margin>
-                  <Insets left="1100.0" top="25.0" />
+                  <Insets left="1150.0" top="25.0" />
                </HBox.margin>
             </ImageView>
             <TextField prefHeight="42.0" prefWidth="268.0">
@@ -53,6 +52,36 @@
          </children>
          <VBox.margin>
             <Insets top="30.0" />
+         </VBox.margin>
+      </HBox>
+      <HBox prefHeight="65.0" prefWidth="1665.0">
+         <children>
+            <Label prefHeight="57.0" prefWidth="50.0" stylesheets="@../css/style.css" text="#" textFill="WHITE">
+               <font>
+                  <Font size="37.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </Label>
+            <Label prefHeight="57.0" prefWidth="398.0" stylesheets="@../css/style.css" text="Title" textFill="WHITE">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <Label prefHeight="57.0" prefWidth="466.0" stylesheets="@../css/style.css" text="Album" textFill="WHITE">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+            <Label prefHeight="57.0" prefWidth="269.0" stylesheets="@../css/style.css" text="Date Added" textFill="WHITE">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets top="10.0" />
          </VBox.margin>
       </HBox>
    </children>

@@ -1,0 +1,32 @@
+.root {
+    -fx-background-color: #181818;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0, 0, 0);
+    -fx-transition-duration: 5.0s;
+}
+
+.root:hover {
+    -fx-background-color: #4b4b4b;
+}
+
+.label {
+    -fx-font-family: "Circular Spotify Tx T Light", sans-serif;
+    -fx-font-size: 25px;|
+    -fx-text-fill: #b3b3b3;
+}
+
+.label:hover {
+    -fx-text-fill: #ffffff;
+}
+
+.label:selected {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+
+.titleLabel {
+    -fx-font-family: "JetBrains Mono ExtraBold";
+    -fx-font-size: 100px;
+    -fx-text-fill: #ffffff;
+}

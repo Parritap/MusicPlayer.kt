@@ -53,3 +53,24 @@
     -fx-border-color: white;
 }
 
+.label {
+    -fx-font-family: "Circular Spotify Tx T Light", sans-serif;
+    -fx-font-size: 25px;
+    -fx-text-fill: #b3b3b3;
+}
+
+.label:hover {
+    -fx-text-fill: #ffffff;
+}
+
+.label:selected {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+
+.titleLabel {
+    -fx-font-family: "JetBrains Mono ExtraBold";
+    -fx-font-size: 100px;
+    -fx-text-fill: #ffffff;
+}
