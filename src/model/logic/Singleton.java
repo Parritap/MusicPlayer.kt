@@ -2,38 +2,35 @@ package model.logic;
 
 import model.logic.data.Song;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 
 public class Singleton {
 
 
-    private static Singleton instance = null;
-    private final OS operatingSystem = OS.detectOperatingSystem();
-    private final ArrayList<Song> songsFound =  SongsProducer.getProducts();
+    private static volatile Singleton INSTANCE;
+    private OS operatingSystem;
+    private ArrayList<Song> songsFound;
 
     private Singleton() {
-        // private constructor to prevent instantiation
     }
 
     public static Singleton getInstance() {
-        if (instance == null) {
-            synchronized (Singleton.class) {
-                if (instance == null) {
-                    instance = new Singleton();
-                }
-            }
+        if (INSTANCE == null) {
+            INSTANCE = new Singleton();
+            System.out.println("Singleton instance created");
+            INSTANCE.operatingSystem = OS.getOperatingSystem();
+            INSTANCE.songsFound = SongsProducer.getProducts();
         }
-        System.out.println("Singleton instance created");
-        SongsProducer.produce(); //////////////////////////////////////////////////////////////////////////////////
-        return instance;
+        return INSTANCE;
     }
+
+
 
     public static OS getOperatingSystem() {
         return Singleton.getInstance().operatingSystem;
     }
 
-    public static  ArrayList<Song> getSongsFound() {
+    public static ArrayList<Song> getSongsFound() {
         return Singleton.getInstance().songsFound;
     }
 }

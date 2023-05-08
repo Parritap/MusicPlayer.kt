@@ -18,18 +18,8 @@ public class SongsProducer {
     private static final String songsPath = PathFinder.getMusicFolderPath();
     private static final ArrayList<Song> songsFound = new ArrayList<>();
 
-    /**
-     * This method is responsible for finding the songs in the device and return them so the can be used by the UI.
-     */
-    public static void produce() {
-        searchSongs();
-    }
-
-
     public static ArrayList<Song> getProducts() {
-        if (songsFound.isEmpty()) {
-            produce();
-        }
+        searchSongs();
         return songsFound;
     }
 

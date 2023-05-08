@@ -12,19 +12,6 @@ import java.util.Objects;
 
 public class Utils {
 
-    public static String detectOperatingSystem() {
-        String osName = System.getProperty("os.name").toLowerCase();
-
-        if (osName.contains("mac")) {
-            return "Mac";
-        } else if (osName.contains("linux")) {
-            return "Linux";
-        } else if (osName.contains("windows")) {
-            return "Windows";
-        } else {
-            return "Unknown";
-        }
-    }
 
     /**
      * Verifies if a String has the extensions listed in the enum SongsExtensions.
@@ -32,8 +19,8 @@ public class Utils {
     public static boolean isSong(String file) {
         int index = file.split("\\.").length - 1; //Esto apunta a la ultima posicion del array, que es la extension
         String ext = file.split("\\.")[index]; //Esto ya es la extension
-        for (SongsExtensions i : SongsExtensions.values()) {
-            if (i.toString().equals(ext)) return true;
+        for (SongsExtensions songExt : SongsExtensions.values()) {
+            if (songExt.getExtension().equals(ext)) return true;
         }
         return false;
     }

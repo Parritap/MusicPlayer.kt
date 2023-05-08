@@ -3,14 +3,15 @@ package model.logic;
 public class PathFinder {
 
     public static String getMusicFolderPath() {
-        var os = Singleton.getOperatingSystem();
+        var os = OS.getOperatingSystem(); //Where OS is an ENUM.
+        var userName = System.getProperty("user.name");
 
-        switch (os){
-            case MAC -> {return "/Users/" + System.getProperty("user.name") + "/Music";}
-            case WINDOWS -> {return "C:\\Users\\" + System.getProperty("user.name") + "\\Music";}
-            case LINUX -> {return "/home/" + System.getProperty("user.name") + "/Music";}
-            default -> {return "";}
-        }
+        return switch (os) {
+            case WINDOWS -> "C:\\Users\\" + userName + "\\Music";
+            case MAC -> "/Users/" + userName + "/Music";
+            case LINUX -> "/home/" + userName + "/Music";
+            default -> "/home/" + userName + "/Music";
+        };
 
     }
 }
