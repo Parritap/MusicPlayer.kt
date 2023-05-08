@@ -6,7 +6,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="80.0" prefWidth="1200.0" styleClass="root" stylesheets="@../css/horizontalImage.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label alignment="CENTER" text="1">
@@ -22,7 +21,7 @@
             <Image url="@../resources/likedSongs.png" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" text="Over the Hills and Far Away">
+      <Label alignment="CENTER" stylesheets="@../css/horizontalImage.css" text="Over the Hills and Far Away">
          <HBox.margin>
             <Insets left="30.0" top="20.0" />
          </HBox.margin>
