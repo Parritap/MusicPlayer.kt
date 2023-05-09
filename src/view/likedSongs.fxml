@@ -13,14 +13,14 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0" prefWidth="1665.0" styleClass="primary_color" stylesheets="@../css/likedSongs.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LikedSongsController">
    <children>
-      <AnchorPane prefHeight="345.0" prefWidth="1665.0" styleClass="view-anchorPane" stylesheets="@../css/likedSongs.css">
+      <AnchorPane prefHeight="284.0" prefWidth="1665.0" styleClass="view-anchorPane" stylesheets="@../css/likedSongs.css">
          <children>
-            <ImageView fitHeight="277.0" fitWidth="291.0" layoutX="141.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="220.0" fitWidth="229.0" layoutX="83.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/likedSongs.png" />
                </image>
             </ImageView>
-            <Label layoutX="459.0" layoutY="100.0" prefHeight="146.0" prefWidth="671.0" styleClass="titleLabel" stylesheets="@../css/style.css" text="Liked Songs" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+            <Label layoutX="389.0" layoutY="69.0" prefHeight="146.0" prefWidth="671.0" styleClass="titleLabel" stylesheets="@../css/style.css" text="Liked Songs" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
                <font>
                   <Font name="JetBrains Mono ExtraBold" size="90.0" />
                </font>
@@ -52,7 +52,7 @@
             </TextField>
          </children>
          <VBox.margin>
-            <Insets top="30.0" />
+            <Insets />
          </VBox.margin>
       </HBox>
       <HBox prefHeight="65.0" prefWidth="1665.0">
@@ -65,15 +65,21 @@
                   <Insets left="30.0" />
                </HBox.margin>
             </Label>
-            <Label prefHeight="57.0" prefWidth="398.0" stylesheets="@../css/likedSongs.css" text="Title" textFill="WHITE">
+            <Label prefHeight="57.0" prefWidth="51.0" stylesheets="@../css/likedSongs.css" text="Title" textFill="WHITE">
                <font>
                   <Font size="37.0" />
                </font>
+               <HBox.margin>
+                  <Insets left="70.0" />
+               </HBox.margin>
             </Label>
             <Label prefHeight="57.0" prefWidth="466.0" stylesheets="@../css/likedSongs.css" text="Album" textFill="WHITE">
                <font>
                   <Font size="37.0" />
                </font>
+               <HBox.margin>
+                  <Insets left="500.0" />
+               </HBox.margin>
             </Label>
             <Label prefHeight="57.0" prefWidth="269.0" stylesheets="@../css/likedSongs.css" text="Date Added" textFill="WHITE">
                <font>
@@ -82,12 +88,12 @@
             </Label>
          </children>
          <VBox.margin>
-            <Insets top="10.0" />
+            <Insets />
          </VBox.margin>
       </HBox>
-      <ScrollPane prefHeight="237.0" prefWidth="1665.0">
+      <ScrollPane prefHeight="339.0" prefWidth="1665.0">
          <content>
-            <VBox fx:id="vBox_songsHolder" prefHeight="200.0" prefWidth="1649.0" />
+            <VBox fx:id="vBox_songsHolder" prefHeight="339.0" prefWidth="1649.0" />
          </content>
       </ScrollPane>
    </children>
