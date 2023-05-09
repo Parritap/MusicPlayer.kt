@@ -3,7 +3,7 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import model.logic.Singleton;
 import model.logic.data.Song;
@@ -23,7 +23,7 @@ public class LikedSongsController  implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (Song song : Singleton.getSongsFound()) {
             try {
-                vBox_songsHolder.getChildren().add(this.addSongHbox(song));
+                vBox_songsHolder.getChildren().add(this.addSongPane(song));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -32,13 +32,13 @@ public class LikedSongsController  implements Initializable {
     }
 
 
-    public HBox addSongHbox(Song song) throws IOException {
+    public AnchorPane addSongPane(Song song) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader();
         fxmlloader.setLocation(getClass().getResource("../view/horizontalSong.fxml"));
-        HBox vbox =  fxmlloader.load();
+        AnchorPane anchorPane =  fxmlloader.load();
         HorizontalSongController horizontalSongController = fxmlloader.getController();
         horizontalSongController.setData(song, String.valueOf(songNumber));
         songNumber++;
-        return vbox;
+        return anchorPane;
     }
 }

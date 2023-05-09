@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="787.0" prefWidth="1665.0" styleClass="primary_color" stylesheets="@../css/likedSongs.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LikedSongsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="839.0" prefWidth="1665.0" styleClass="primary_color" stylesheets="@../css/likedSongs.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LikedSongsController">
    <children>
       <AnchorPane prefHeight="284.0" prefWidth="1665.0" styleClass="view-anchorPane" stylesheets="@../css/likedSongs.css">
          <children>
@@ -81,7 +81,7 @@
                   <Insets left="500.0" />
                </HBox.margin>
             </Label>
-            <Label prefHeight="57.0" prefWidth="269.0" stylesheets="@../css/likedSongs.css" text="Date Added" textFill="WHITE">
+            <Label prefHeight="57.0" prefWidth="269.0" stylesheets="@../css/likedSongs.css" text="Year of Publication" textFill="WHITE">
                <font>
                   <Font size="37.0" />
                </font>
@@ -91,9 +91,9 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <ScrollPane prefHeight="339.0" prefWidth="1665.0">
+      <ScrollPane prefHeight="391.0" prefWidth="1665.0">
          <content>
-            <VBox fx:id="vBox_songsHolder" prefHeight="339.0" prefWidth="1649.0" />
+            <VBox fx:id="vBox_songsHolder" prefHeight="396.0" prefWidth="1649.0" />
          </content>
       </ScrollPane>
    </children>
