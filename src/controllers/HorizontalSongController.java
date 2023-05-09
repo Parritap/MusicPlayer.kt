@@ -22,8 +22,8 @@ public class HorizontalSongController {
     @FXML
     private ImageView songImage;
 
-
     public void setData(Song song, String number){
+        songImage.setImage(song.getImageFromArtWork());
         lbl_title.setText(song.getTitle());
         lbl_album.setText(song.getAlbum());
         lbl_date.setText(song.getYear());

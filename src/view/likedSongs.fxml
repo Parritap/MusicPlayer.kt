@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -64,7 +65,7 @@
                   <Insets left="30.0" />
                </HBox.margin>
             </Label>
-            <Label prefHeight="57.0" prefWidth="398.0" stylesheets="@../css/style.css" text="Title" textFill="WHITE">
+            <Label prefHeight="57.0" prefWidth="398.0" stylesheets="@../css/likedSongs.css" text="Title" textFill="WHITE">
                <font>
                   <Font size="37.0" />
                </font>
@@ -84,5 +85,10 @@
             <Insets top="10.0" />
          </VBox.margin>
       </HBox>
+      <ScrollPane prefHeight="237.0" prefWidth="1665.0">
+         <content>
+            <VBox fx:id="vBox_songsHolder" prefHeight="200.0" prefWidth="1649.0" />
+         </content>
+      </ScrollPane>
    </children>
 </VBox>

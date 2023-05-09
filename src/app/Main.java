@@ -19,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../view/mainView.fxml")));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../view/likedSongs.fxml")));
         Scene scene = new Scene(root);
         stage.setTitle("Spotify");
         stage.setScene(scene);

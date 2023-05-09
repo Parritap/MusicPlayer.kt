@@ -24,8 +24,7 @@ public class MainViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        for (Song song : Singleton.getSongsFound()
-        ) {
+        for (Song song : Singleton.getSongsFound()) {
             try {
                 //La siguiente linea añade un anchor pane al slide con la información de la canción.
                 recentlyPlayedContainer.getChildren().add(this.generateTile(song));
@@ -37,7 +36,7 @@ public class MainViewController implements Initializable {
     }
 
     /**
-     * Este método se encarga de generar un tile con la información de la canción.
+     * Este método se encarga de generar un tile (pieza, baldosa) con la información de la canción.
      * @param song
      * @return AnchorPane con el arte de la canción y su titulo, así como los compositores.
      * @throws IOException
