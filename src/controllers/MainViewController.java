@@ -3,8 +3,6 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
@@ -22,8 +20,6 @@ public class MainViewController implements Initializable {
         fxmlLoader.setLocation(getClass().getResource("../view/likedSongs.fxml"));
         try {
             VBox likedSongsView = fxmlLoader.load();
-            LikedSongsController likedSongsController = fxmlLoader.getController();
-            likedSongsController.initialize(url, resourceBundle);
             this.centrePane.getChildren().add(likedSongsView);
         } catch (IOException e) {
             throw new RuntimeException(e);
