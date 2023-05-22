@@ -3,10 +3,7 @@ package model.logic;
 import model.logic.data.Song;
 
 import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Optional;
 
 public class Singleton {
 

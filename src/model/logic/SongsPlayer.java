@@ -7,7 +7,6 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
-import java.util.Optional;
 
 public class SongsPlayer {
 
@@ -19,12 +18,6 @@ public class SongsPlayer {
             if (audioClip != null) {
                 audioClip.stop();
                 audioClip.close();
-            } else {
-                try {
-                    audioClip = AudioSystem.getClip();
-                } catch (LineUnavailableException e) {
-                    throw new RuntimeException("cannot get the audio clip by the singleton %n%s".formatted(e.getMessage()));
-                }
             }
 
             try {

@@ -1,10 +1,7 @@
 package app;
 
-import controllers.MainViewController;
-import controllers.SongControlController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -12,7 +9,6 @@ import javafx.stage.Stage;
 import model.logic.Singleton;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class Main extends Application {
 
