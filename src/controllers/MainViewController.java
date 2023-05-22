@@ -12,9 +12,6 @@ import java.util.ResourceBundle;
 
 public class MainViewController implements Initializable {
 
-    MainViewController mainViewController;
-    BorderPane mainView;
-
     @FXML
     private VBox centrePane;
 
@@ -26,15 +23,10 @@ public class MainViewController implements Initializable {
         try {
             VBox likedSongsView = fxmlLoader.load();
             LikedSongsController likedSongsController = fxmlLoader.getController();
-            likedSongsController.setMainViewController(this);
             likedSongsController.initialize(url, resourceBundle);
             this.centrePane.getChildren().add(likedSongsView);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void setMainView(BorderPane root) {
-        this.mainView = mainView;
     }
 }

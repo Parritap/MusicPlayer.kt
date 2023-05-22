@@ -5,10 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import model.logic.SongsPlayer;
 import model.logic.data.Song;
 
@@ -17,7 +14,6 @@ import java.io.IOException;
 
 public class HorizontalSongController {
 
-    MainViewController mainViewController;
     private Song song;
 
     @FXML
@@ -46,25 +42,6 @@ public class HorizontalSongController {
 
     @FXML
     void playSong(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("../view/songControl.fxml"));
-
-        HBox songsControlView;
-        SongControlController songControlController;
-        try {
-            songsControlView = loader.load();
-            songControlController = loader.getController();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
         SongsPlayer.playSong(song);
-        mainViewController.mainView.setBottom(FXMLLoader.load(getClass().getResource("../view/songControl.fxml")));
-
-    }
-
-    public void setMainViewController(MainViewController mainViewController) {
-        this.mainViewController = mainViewController;
     }
 }

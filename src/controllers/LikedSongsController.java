@@ -16,8 +16,6 @@ import java.util.ResourceBundle;
 
 public class LikedSongsController  implements Initializable {
 
-    MainViewController mainViewController;
-
     @FXML
     private VBox vBox_songsHolder;
 
@@ -36,19 +34,14 @@ public class LikedSongsController  implements Initializable {
 
     }
 
-
     public AnchorPane addSongPane(Song song) throws IOException {
         FXMLLoader fxmlloader = new FXMLLoader();
         fxmlloader.setLocation(getClass().getResource("../view/horizontalSong.fxml"));
         AnchorPane anchorPane =  fxmlloader.load();
         HorizontalSongController horizontalSongController = fxmlloader.getController();
         horizontalSongController.setData(song, String.valueOf(songNumber));
-        horizontalSongController.setMainViewController(mainViewController);
         songNumber++;
         return anchorPane;
     }
 
-    public void setMainViewController(MainViewController mainViewController) {
-        this.mainViewController = mainViewController;
-    }
 }

@@ -1,6 +1,7 @@
 package app;
 
 import controllers.MainViewController;
+import controllers.SongControlController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -26,14 +27,29 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../view/mainView.fxml"));
         BorderPane root = loader.load();
-        MainViewController mainViewController = loader.getController();
 
-        mainViewController.setMainView(root);
+        agregarReproductor(root);
 
         Scene scene = new Scene(root);
         stage.setTitle("Spotify");
         stage.setScene(scene);
+        stage.setFullScreen(true);
         stage.show();
+    }
+
+    private void agregarReproductor(BorderPane root) {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../view/songControl.fxml"));
+
+        try {
+            HBox songsControlView = loader.load();
+            root.setBottom(songsControlView);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+
     }
 
 }
