@@ -28,6 +28,9 @@ public class Song {
         this.artist = artist;
         this.album = album;
         this.artWork = artwork;
+
+        // test
+        System.out.println(path);
     }
 
     public Image getImageFromArtWork() {

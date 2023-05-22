@@ -3,7 +3,9 @@ package controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import model.logic.Singleton;
 import model.logic.data.Song;
@@ -14,14 +16,17 @@ import java.util.ResourceBundle;
 
 public class LikedSongsController  implements Initializable {
 
+    MainViewController mainViewController;
+
     @FXML
     private VBox vBox_songsHolder;
 
     private static int songNumber = 0;
 
-   @Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         for (Song song : Singleton.getSongsFound()) {
+
             try {
                 vBox_songsHolder.getChildren().add(this.addSongPane(song));
             } catch (IOException e) {
@@ -38,9 +43,12 @@ public class LikedSongsController  implements Initializable {
         AnchorPane anchorPane =  fxmlloader.load();
         HorizontalSongController horizontalSongController = fxmlloader.getController();
         horizontalSongController.setData(song, String.valueOf(songNumber));
+        horizontalSongController.setMainViewController(mainViewController);
         songNumber++;
         return anchorPane;
     }
 
-
+    public void setMainViewController(MainViewController mainViewController) {
+        this.mainViewController = mainViewController;
+    }
 }

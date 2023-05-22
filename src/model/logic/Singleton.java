@@ -2,7 +2,11 @@ package model.logic;
 
 import model.logic.data.Song;
 
+import javax.sound.sampled.*;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Singleton {
 
@@ -10,6 +14,8 @@ public class Singleton {
     private static volatile Singleton INSTANCE;
     private OS operatingSystem;
     private ArrayList<Song> songsFound;
+
+    private Clip audioClip;
 
     private Singleton() {
     }
@@ -33,4 +39,13 @@ public class Singleton {
     public static ArrayList<Song> getSongsFound() {
         return Singleton.getInstance().songsFound;
     }
+
+    public void setAudioCLip(Clip audioClip) {
+        this.audioClip = audioClip;
+    }
+
+    public Clip getAudioClip() {
+        return audioClip;
+    }
+
 }

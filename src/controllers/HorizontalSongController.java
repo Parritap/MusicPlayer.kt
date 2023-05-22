@@ -1,16 +1,24 @@
 package  controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import model.logic.SongsPlayer;
 import model.logic.data.Song;
 
 import javax.sound.sampled.*;
-import java.io.File;
 import java.io.IOException;
 
 public class HorizontalSongController {
+
+    MainViewController mainViewController;
+    private Song song;
 
     @FXML
     private Label lbl_album;
@@ -27,8 +35,6 @@ public class HorizontalSongController {
     @FXML
     private ImageView songImage;
 
-    private Song song;
-
     public void setData(Song song, String number){
         this.song = song;
         songImage.setImage(song.getImageFromArtWork());
@@ -40,10 +46,25 @@ public class HorizontalSongController {
 
     @FXML
     void playSong(MouseEvent event) throws UnsupportedAudioFileException, IOException, LineUnavailableException {
-        AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(song.getPath()));
-        Clip clip = AudioSystem.getClip();
-        clip.open(audioInputStream);
-        clip.start();
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("../view/songControl.fxml"));
+
+        HBox songsControlView;
+        SongControlController songControlController;
+        try {
+            songsControlView = loader.load();
+            songControlController = loader.getController();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        SongsPlayer.playSong(song);
+        mainViewController.mainView.setBottom(FXMLLoader.load(getClass().getResource("../view/songControl.fxml")));
+
     }
 
+    public void setMainViewController(MainViewController mainViewController) {
+        this.mainViewController = mainViewController;
+    }
 }

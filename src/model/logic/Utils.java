@@ -7,6 +7,7 @@ import org.jaudiotagger.tag.datatype.Artwork;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -57,7 +58,8 @@ public class Utils {
     public static Artwork getArtWorkNotNull(AudioFile audioFile) throws IOException {
         Artwork art = audioFile.getTag().getFirstArtwork();
         if (art == null) {
-            return Artwork.createArtworkFromFile(new File("/home/juanestebanparraparra/IdeaProjects/MusicPlayer.kt/src/resources/myResources/songGenericImage.png"));
+            URL path = Utils.class.getResource("../../resources/myResources/songGenericImage.png");
+            return Artwork.createArtworkFromFile(new File(path.getPath()));
         } else {
             return art;
         }
