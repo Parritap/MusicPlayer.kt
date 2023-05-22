@@ -31,7 +31,7 @@ public class SongsPlayer {
             }
 
             try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(song.getPath()));
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File(song.getWavFilePath()));
                 audioClip = AudioSystem.getClip();
                 audioClip.open(audioInputStream);
                 audioClip.start();
@@ -69,5 +69,4 @@ public class SongsPlayer {
     }
 
     public static void secondTestMethod() { duration.setValue(10); }
-
 }

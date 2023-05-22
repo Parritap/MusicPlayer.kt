@@ -20,7 +20,25 @@ public class SongsProducer {
 
     public static ArrayList<Song> getProducts() {
         searchSongs();
+        createAsociatedWAVFiles();
         return songsFound;
+    }
+
+    private static void createAsociatedWAVFiles() {
+
+        String wavFolder = PathFinder.getMusicFolderPath() + "/wav"; //Ruta dentro de music donde se guardarán los archivos wav asociados a las canciones.
+        if (new File(wavFolder).mkdirs()) {
+            System.out.println("wav folder created ---> " + wavFolder);
+        } else {
+            System.out.println("wav folder already exists");
+        }
+
+        for (Song song : songsFound) {
+            String wavFilePath = wavFolder + "/" + song.getTitle() + ".wav";
+            song.setWavFilePath(wavFilePath);
+            Utils.convertToWAV(song.getPath(), wavFilePath);
+        }
+
     }
 
     /**

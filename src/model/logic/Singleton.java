@@ -14,6 +14,8 @@ public class Singleton {
 
     private Clip audioClip;
 
+    private  Song currentSong;
+
     private Singleton() {
     }
 

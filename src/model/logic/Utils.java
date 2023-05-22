@@ -1,7 +1,10 @@
 package model.logic;
 
+import javazoom.jl.converter.Converter;
+import javazoom.jl.player.Player;
 import org.jaudiotagger.audio.AudioFile;
 import org.jaudiotagger.tag.datatype.Artwork;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -60,6 +63,27 @@ public class Utils {
             return Artwork.createArtworkFromFile(new File(path.getPath()));
         } else {
             return art;
+        }
+    }
+
+    /**
+     * Este método convierte un archivo MP3 a WAV. Hace uso de la librería JLayer, especificamente la jl.1.0.1.4.
+     * @param mp3FilePath
+     * @param wavFilePath
+     */
+    public static void convertToWAV(String mp3FilePath, String wavFilePath) {
+
+        File file = new File(wavFilePath);
+        if (file.exists()) {
+            return; //Si ya existe un WAV asociado, no hacer nada.
+        }
+
+        try {
+            Converter converter = new Converter();
+            converter.convert(mp3FilePath, wavFilePath);
+            System.out.println("Conversion completed successfully for file --->  " + mp3FilePath);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
