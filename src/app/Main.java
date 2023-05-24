@@ -32,6 +32,9 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.setFullScreen(true);
         stage.show();
+        stage.setOnCloseRequest(windowEvent -> {
+            System.exit(0);
+        });
     }
 
     private void agregarReproductor(BorderPane root) {
@@ -45,7 +48,6 @@ public class Main extends Application {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
 
     }
 

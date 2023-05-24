@@ -14,6 +14,14 @@ public class Singleton {
 
     private Clip audioClip;
 
+    {
+        try {
+            audioClip = AudioSystem.getClip();
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private  Song currentSong;
 
     private Singleton() {

@@ -1,8 +1,11 @@
 package model.logic;
 
+import javafx.application.Platform;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.concurrent.Task;
+import model.logic.bindingLayer.SongForBinding;
 import model.logic.data.Song;
 
 import javax.sound.sampled.AudioInputStream;
@@ -13,15 +16,10 @@ import java.util.Optional;
 
 public class SongsPlayer {
 
-    public static Song currentSong;
-
-    //test
-    public static SimpleStringProperty name = new SimpleStringProperty();
-    public static SimpleDoubleProperty duration = new SimpleDoubleProperty();
+    public static SongForBinding currentSong  = new SongForBinding();
 
     public static void playSong(Song song) {
 
-        currentSong = song;
         Clip audioClip = Singleton.getInstance().getAudioClip();
 
         if (song != null) {
@@ -41,6 +39,22 @@ public class SongsPlayer {
 
             Singleton.getInstance().setAudioCLip(audioClip);
         }
+
+        currentSong.setearCancion(song);
+        (new Thread(() -> {
+            while (true){
+                Platform.runLater(() -> {
+                    currentSong.incrementProgress();
+                });
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        })).start();
+
     }
 
     public static void pauseCurrentSong() {
@@ -62,11 +76,4 @@ public class SongsPlayer {
             }));
         });
     }
-
-    //test
-    public static void testMethod(){
-        name.setValue("hola mundo");
-    }
-
-    public static void secondTestMethod() { duration.setValue(10); }
 }

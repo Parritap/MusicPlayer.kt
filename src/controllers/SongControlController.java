@@ -1,10 +1,14 @@
 package controllers;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
+import javafx.util.StringConverter;
 import model.logic.SongsPlayer;
 import model.logic.data.Song;
 
@@ -33,7 +37,7 @@ public class SongControlController implements Initializable {
     private Label songAuthorLbl;
 
     @FXML
-    private Label songCurrentTIme;
+    private Label songCurrentTime;
 
     @FXML
     private ImageView songImageView;
@@ -71,16 +75,16 @@ public class SongControlController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         //test
-        songProgressSlider.valueProperty().bindBidirectional(SongsPlayer.duration);
+        songProgressSlider.maxProperty().bindBidirectional(SongsPlayer.currentSong.durationProperty());
+        songProgressSlider.valueProperty().bindBidirectional(SongsPlayer.currentSong.progressProperty());
+
+        songCurrentTime.textProperty().bind(SongsPlayer.currentSong.progressProperty().asString());
+
 
         // text
-        songNameLbl.textProperty().bindBidirectional(SongsPlayer.name);
-
-        stateSongImageView.setOnMouseClicked(mouseEvent -> {
-            System.out.println("hola mundo");
-            SongsPlayer.testMethod();
-            SongsPlayer.secondTestMethod();
-        });
+        songNameLbl.textProperty().bindBidirectional(SongsPlayer.currentSong.titleProperty());
+        songImageView.imageProperty().bindBidirectional(SongsPlayer.currentSong.imageProperty());
+        songAuthorLbl.textProperty().bindBidirectional(SongsPlayer.currentSong.artistProperty());
 
     }
 }
