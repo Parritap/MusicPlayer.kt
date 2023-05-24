@@ -7,18 +7,23 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.concurrent.Task;
 import model.logic.bindingLayer.SongForBinding;
 import model.logic.data.Song;
+import model.logic.threads.SliderUptaderThread;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SongsPlayer {
 
     public static SongForBinding currentSong  = new SongForBinding();
+    private static SliderUptaderThread sliderUptader;
 
     public static void playSong(Song song) {
+
+        if (sliderUptader != null) sliderUptader.stop();
 
         Clip audioClip = Singleton.getInstance().getAudioClip();
 
@@ -41,19 +46,7 @@ public class SongsPlayer {
         }
 
         currentSong.setearCancion(song);
-        (new Thread(() -> {
-            while (true){
-                Platform.runLater(() -> {
-                    currentSong.incrementProgress();
-                });
-
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        })).start();
+        sliderUptader = new SliderUptaderThread("slider uptader", currentSong);
 
     }
 
@@ -62,7 +55,12 @@ public class SongsPlayer {
         Optional.of(currentSong).ifPresent(song -> {
             Clip audioClip = Singleton.getInstance().getAudioClip();
             Optional.of(audioClip).ifPresent((clip -> {
-                clip.stop();
+                Optional.of(sliderUptader).ifPresent(uptader -> {
+
+                    if (uptader.isAlive()) uptader.interrupt();
+                    clip.stop();
+
+                });
             }));
         });
     }
@@ -72,7 +70,12 @@ public class SongsPlayer {
         Optional.of(currentSong).ifPresent(song -> {
             Clip audioClip = Singleton.getInstance().getAudioClip();
             Optional.of(audioClip).ifPresent((clip -> {
-                clip.start();
+                Optional.of(sliderUptader).ifPresent(uptader -> {
+
+                    if (uptader.isInterrupted()) uptader.start();
+                    clip.start();
+
+                });
             }));
         });
     }

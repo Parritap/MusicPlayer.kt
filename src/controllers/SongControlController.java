@@ -74,17 +74,12 @@ public class SongControlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        //test
-        songProgressSlider.maxProperty().bindBidirectional(SongsPlayer.currentSong.durationProperty());
+        songProgressSlider.maxProperty().bind(SongsPlayer.currentSong.durationProperty());
         songProgressSlider.valueProperty().bindBidirectional(SongsPlayer.currentSong.progressProperty());
-
         songCurrentTime.textProperty().bind(SongsPlayer.currentSong.progressProperty().asString());
-
-
-        // text
-        songNameLbl.textProperty().bindBidirectional(SongsPlayer.currentSong.titleProperty());
-        songImageView.imageProperty().bindBidirectional(SongsPlayer.currentSong.imageProperty());
-        songAuthorLbl.textProperty().bindBidirectional(SongsPlayer.currentSong.artistProperty());
+        songNameLbl.textProperty().bind(SongsPlayer.currentSong.titleProperty());
+        songImageView.imageProperty().bind(SongsPlayer.currentSong.imageProperty());
+        songAuthorLbl.textProperty().bind(SongsPlayer.currentSong.artistProperty());
 
     }
 }

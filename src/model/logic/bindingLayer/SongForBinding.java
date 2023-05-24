@@ -19,8 +19,6 @@ public class SongForBinding {
         title.setValue(song.getTitle());
         artist.setValue(song.getArtist());
         image.setValue(song.getImageFromArtWork());
-
-        // potentially bad
         duration.setValue(Singleton.getInstance().getAudioClip().getMicrosecondLength() / 1000000);
         progress.setValue(0);
 
