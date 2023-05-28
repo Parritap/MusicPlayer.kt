@@ -21,6 +21,9 @@ public class LikedSongsController  implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        BinarySearchTree songsTree = new BinarySearchTree(Singleton.getSongsFound());
+
         for (Song song : Singleton.getSongsFound()) {
 
             try {

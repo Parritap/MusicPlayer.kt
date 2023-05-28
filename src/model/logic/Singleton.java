@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Singleton {
 
-
     private static volatile Singleton INSTANCE;
     private OS operatingSystem;
     private ArrayList<Song> songsFound;

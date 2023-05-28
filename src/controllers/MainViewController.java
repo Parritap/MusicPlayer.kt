@@ -8,13 +8,32 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class MainViewController implements Initializable {
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+
+public class MainViewController {
+
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
 
     @FXML
     private VBox centrePane;
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    @FXML
+    private Label likedSongs;
+
+    @FXML
+    private TextField txtSearchSong;
+
+    @FXML
+    void initialize() {
+
+        txtSearchSong.textProperty().addListener( (observable, s, t1) -> {
+            System.out.println("hola mundo");
+        });
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../view/likedSongs.fxml"));
@@ -25,4 +44,5 @@ public class MainViewController implements Initializable {
             throw new RuntimeException(e);
         }
     }
+
 }

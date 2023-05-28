@@ -55,23 +55,6 @@ public class SongControlController implements Initializable {
     @FXML
     private ImageView volumeImageView;
 
-    public void playSong(Song song) {
-
-        setearDatos(song);
-
-        // not implemented yet, function in class "HorizontalSongController"
-        //SongsPlayer.playSong(song);
-
-        cambiarEstadoReproduciendo();
-
-    }
-
-    private void cambiarEstadoReproduciendo() {
-    }
-
-    private void setearDatos(Song song) {
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
