@@ -72,7 +72,7 @@ public class SongsPlayer {
             Optional.of(audioClip).ifPresent((clip -> {
                 Optional.of(sliderUptader).ifPresent(uptader -> {
 
-                    if (uptader.isInterrupted()) uptader.start();
+                    uptader.contin();
                     clip.start();
 
                 });

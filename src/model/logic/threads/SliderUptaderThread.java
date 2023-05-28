@@ -22,6 +22,10 @@ public class SliderUptaderThread implements Runnable {
 
     // execution of thread starts from run() method
     public void run() {
+        updateSongProgress();
+    }
+
+    public void updateSongProgress() {
         while (currentSong.progressProperty().lessThan(currentSong.durationProperty()).get() && !exit){
             Platform.runLater(() -> {
                 currentSong.incrementProgress();
@@ -34,22 +38,22 @@ public class SliderUptaderThread implements Runnable {
     }
 
     // for stopping the thread
+    public void kill() { stop(); }
 
+    public void interrupt() { stop(); }
 
-    public boolean isInterrupted() {
-        return t.isInterrupted();
-    }
+    public void start() { t.start(); }
 
-    public void start() {
+    public void contin() {
+        exit = false;
+        t = new Thread(this, name);
         t.start();
     }
 
+    // public boolean isInterrupted() { return t.isInterrupted(); }
+
     public boolean isAlive() {
         return t.isAlive();
-    }
-
-    public void interrupt() {
-        t.interrupt();
     }
 
     public void stop(){

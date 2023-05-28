@@ -48,6 +48,7 @@ public class SongControlController implements Initializable {
     @FXML
     private Slider songProgressSlider;
 
+    private boolean isStopped = false;
     @FXML
     private ImageView stateSongImageView;
 
@@ -75,7 +76,15 @@ public class SongControlController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
         stateSongImageView.setOnMouseClicked(mouseEvent -> {
-            SongsPlayer.pauseCurrentSong();
+
+            if ( !isStopped ) {
+                SongsPlayer.pauseCurrentSong();
+                isStopped = true;
+            } else {
+                SongsPlayer.continueCurrentSong();
+                isStopped = false;
+            }
+
         });
 
         songProgressSlider.maxProperty().bind(SongsPlayer.currentSong.durationProperty());
