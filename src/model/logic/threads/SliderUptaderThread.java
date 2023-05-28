@@ -10,7 +10,7 @@ public class SliderUptaderThread implements Runnable {
     public SongForBinding currentSong;
 
     private String name;
-    Thread t;
+    private Thread t;
     public SliderUptaderThread(String name, SongForBinding currentSong){
         this.currentSong = currentSong;
         this.name = name;
@@ -34,9 +34,7 @@ public class SliderUptaderThread implements Runnable {
     }
 
     // for stopping the thread
-    public void stop(){
-        exit = true;
-    }
+
 
     public boolean isInterrupted() {
         return t.isInterrupted();
@@ -52,5 +50,9 @@ public class SliderUptaderThread implements Runnable {
 
     public void interrupt() {
         t.interrupt();
+    }
+
+    public void stop(){
+        exit = true;
     }
 }

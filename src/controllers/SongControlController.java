@@ -74,6 +74,10 @@ public class SongControlController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        stateSongImageView.setOnMouseClicked(mouseEvent -> {
+            SongsPlayer.pauseCurrentSong();
+        });
+
         songProgressSlider.maxProperty().bind(SongsPlayer.currentSong.durationProperty());
         songProgressSlider.valueProperty().bindBidirectional(SongsPlayer.currentSong.progressProperty());
         songCurrentTime.textProperty().bind(SongsPlayer.currentSong.progressProperty().asString());
