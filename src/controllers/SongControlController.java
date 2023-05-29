@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.util.StringConverter;
+import model.logic.Singleton;
 import model.logic.SongsPlayer;
 import model.logic.data.Song;
 
@@ -48,7 +49,7 @@ public class SongControlController implements Initializable {
     @FXML
     private Slider songProgressSlider;
 
-    private boolean isStopped = false;
+    private Boolean isStopped = false;
     @FXML
     private ImageView stateSongImageView;
 
@@ -60,12 +61,18 @@ public class SongControlController implements Initializable {
 
         stateSongImageView.setOnMouseClicked(mouseEvent -> {
 
-            if ( !isStopped ) {
-                SongsPlayer.pauseCurrentSong();
-                isStopped = true;
-            } else {
-                SongsPlayer.continueCurrentSong();
-                isStopped = false;
+            synchronized (isStopped) {
+
+                isStopped = !Singleton.getInstance().getAudioClip().isRunning();
+
+                if ( !isStopped ) {
+                    SongsPlayer.pauseCurrentSong();
+                    //isStopped = true;
+                } else {
+                    SongsPlayer.continueCurrentSong();
+                    //isStopped = false;
+                }
+
             }
 
         });
