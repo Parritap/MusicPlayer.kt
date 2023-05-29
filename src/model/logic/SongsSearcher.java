@@ -11,16 +11,10 @@ import java.util.List;
 
 public class SongsSearcher {
 
-    private static StringProperty songNameSearch = new SimpleStringProperty(){{
-        addListener((observableValue, s, t1) -> {
-            System.out.println("cambio!!");
-        });
-    }};
-    private static LinkedList<Song> songsForSearch = new LinkedList(Singleton.getSongsFound());
+    private static StringProperty songNameSearch = new SimpleStringProperty("");
 
-    public static String getSongNameSearch() {
-        return songNameSearch.get();
-    }
+    private static LinkedList<Song> songsForSearch = new LinkedList<>(Singleton.getSongsFound());
+
 
     public static StringProperty songNameSearchProperty() {
         return songNameSearch;
@@ -28,12 +22,9 @@ public class SongsSearcher {
 
     public static List<Song> obtenerCancionesConCoincidencia(String nombre) {
 
-        songsForSearch = new LinkedList<>(Singleton.getSongsFound());
-        System.out.println(songsForSearch.toString());
 
         return songsForSearch.stream().filter( song -> song.getTitle().contains(nombre)).toList();
 
     }
-
 
 }

@@ -1,10 +1,5 @@
 package controllers;
 
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,24 +15,20 @@ import java.util.ResourceBundle;
 
 public class LikedSongsController  implements Initializable {
 
-    StringProperty songNameSearch = new SimpleStringProperty();
-
     @FXML
     private VBox vBox_songsHolder;
 
-    private static int songNumber = 0;
+    private static int songNumber = 1;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
-        songNameSearch.bindBidirectional(SongsSearcher.songNameSearchProperty());
-        songNameSearch.addListener( (observableValue, lastString, newString) -> {
+        SongsSearcher.songNameSearchProperty().addListener((observableValue, s, t1) -> {
 
-            System.out.println("hola");
-
+            songNumber = 1;
             vBox_songsHolder.getChildren().clear();
 
-            for (Song song : SongsSearcher.obtenerCancionesConCoincidencia(newString)) {
+            for (Song song : SongsSearcher.obtenerCancionesConCoincidencia(t1)) {
 
                 try {
                     vBox_songsHolder.getChildren().add(this.addSongPane(song));
