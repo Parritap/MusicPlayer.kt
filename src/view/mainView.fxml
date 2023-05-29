@@ -175,7 +175,7 @@
                               <Image url="@../resources/ic_search.png" />
                            </image>
                         </ImageView>
-                        <TextField fx:id="txtSearchSong" prefHeight="31.0" prefWidth="173.0" promptText="Search" style="-fx-background-color: transparent;" />
+                        <TextField fx:id="txtSearchSong" prefHeight="31.0" prefWidth="173.0" promptText="Search" styleClass="textFieldSearch" stylesheets="@../css/likedSongs.css" />
                      </children>
                   </HBox>
                   <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />

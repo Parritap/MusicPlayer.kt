@@ -1,5 +1,7 @@
 package controllers;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -10,6 +12,7 @@ import java.util.ResourceBundle;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.logic.SongsSearcher;
 
 public class MainViewController {
 
@@ -31,9 +34,7 @@ public class MainViewController {
     @FXML
     void initialize() {
 
-        txtSearchSong.textProperty().addListener( (observable, s, t1) -> {
-            System.out.println("hola mundo");
-        });
+        txtSearchSong.textProperty().bindBidirectional(SongsSearcher.songNameSearchProperty());
 
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("../view/likedSongs.fxml"));
@@ -44,5 +45,4 @@ public class MainViewController {
             throw new RuntimeException(e);
         }
     }
-
 }
