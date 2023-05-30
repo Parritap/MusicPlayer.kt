@@ -4,9 +4,11 @@ import javafx.application.Platform;
 import model.logic.bindingLayer.SongForBinding;
 import model.logic.data.Song;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class SliderUptaderThread implements Runnable {
 
-    public boolean exit;
+    public AtomicBoolean exit = new AtomicBoolean();
     public SongForBinding currentSong;
 
     private String name;
@@ -16,7 +18,7 @@ public class SliderUptaderThread implements Runnable {
         this.name = name;
         t = new Thread(this, name);
         // for testing: System.out.println("New thread: " + t);
-        exit = false;
+        exit.set(false);
         t.start(); // Starting the thread
     }
 
@@ -26,7 +28,7 @@ public class SliderUptaderThread implements Runnable {
     }
 
     public void updateSongProgress() {
-        while (currentSong.progressProperty().lessThan(currentSong.durationProperty()).get() && !exit){
+        while (currentSong.progressProperty().lessThan(currentSong.durationProperty()).get() && !exit.get()){
             Platform.runLater(() -> {
                 currentSong.incrementProgress();
             });
@@ -45,7 +47,7 @@ public class SliderUptaderThread implements Runnable {
     public void start() { t.start(); }
 
     public void contin() {
-        exit = false;
+        exit.set(false);
         t = new Thread(this, name);
         t.start();
     }
@@ -57,6 +59,6 @@ public class SliderUptaderThread implements Runnable {
     }
 
     public void stop(){
-        exit = true;
+        exit.set(true);
     }
 }
