@@ -14,6 +14,9 @@ import java.util.Objects;
 
 public class Utils {
 
+    public static String pathMainView = "../view/mainView.fxml";
+    public static String pathLoginView = "../view/Login.fxml";
+
 
     /**
      * Verifies if a String has the extensions listed in the enum SongsExtensions.
