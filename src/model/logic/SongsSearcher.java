@@ -22,8 +22,7 @@ public class SongsSearcher {
 
     public static List<Song> obtenerCancionesConCoincidencia(String nombre) {
 
-
-        return songsForSearch.stream().filter( song -> song.getTitle().contains(nombre)).toList();
+        return songsForSearch.stream().filter( song -> song.getTitle().toLowerCase().contains(nombre.toLowerCase())).toList();
 
     }
 

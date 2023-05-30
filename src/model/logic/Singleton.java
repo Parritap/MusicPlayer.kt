@@ -28,7 +28,7 @@ public class Singleton {
         }
     }
 
-    private  Song currentSong;
+    private Song currentSong;
     private User currentUser;
     private App app;
 

@@ -25,11 +25,9 @@ public class App extends Application {
     private Scene scene;
     private Stage stage;
 
-
     public static void main(String[] args) throws Exception {
         Singleton.getInstance();
         launch(args);
-
     }
 
     @Override
@@ -45,6 +43,10 @@ public class App extends Application {
         stage.setScene(scene);
         stage.setFullScreen(true);
         stage.show();
+
+        stage.setOnCloseRequest(windowEvent -> {
+            System.exit(0);
+        });
     }
 
     private void agregarReproductor(Pane root) {
@@ -60,24 +62,6 @@ public class App extends Application {
             throw new RuntimeException(e);
         }
     }
-
-    // public void loadScene(String fxmlPath) {
-    //     FXMLLoader loader = new FXMLLoader();
-    //     loader.setLocation(App.class.getResource(fxmlPath));
-    //     try {
-    //         Pane root = loader.load();
-    //         setearAppAControlador(loader); // -> Pasamos la instancia de App al siguente controlador.
-    //         if (fxmlPath.equals(Utils.pathMainView)) agregarReproductor(root); //Agrega la barra de reproduccion que se encuentra en la parte inferior de la pantalla.
-    //        // if (currentStage != null) currentStage.close();
-    //         Scene scene = new Scene(root);
-    //         Stage newStage = new Stage();
-    //         this.currentStage = newStage;
-    //         newStage.setScene(scene);
-    //         newStage.show();
-    //     } catch (IOException e) {
-    //         throw new RuntimeException(e);
-    //     }
-    // }
 
     public void loadScene(String pathToView) {
         try {

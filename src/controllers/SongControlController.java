@@ -15,6 +15,7 @@ import model.logic.data.Song;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class SongControlController implements Initializable {
@@ -49,7 +50,7 @@ public class SongControlController implements Initializable {
     @FXML
     private Slider songProgressSlider;
 
-    private Boolean isStopped = false;
+    private AtomicBoolean isStopped = new AtomicBoolean();
     @FXML
     private ImageView stateSongImageView;
 
@@ -63,9 +64,9 @@ public class SongControlController implements Initializable {
 
             synchronized (isStopped) {
 
-                isStopped = !Singleton.getInstance().getAudioClip().isRunning();
+                isStopped.set(!Singleton.getInstance().getAudioClip().isRunning());
 
-                if ( !isStopped ) {
+                if ( !isStopped.get() ) {
                     SongsPlayer.pauseCurrentSong();
                     //isStopped = true;
                 } else {
