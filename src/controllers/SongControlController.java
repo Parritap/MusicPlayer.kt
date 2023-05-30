@@ -1,6 +1,7 @@
 package controllers;
 
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
@@ -9,11 +10,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.ImageView;
 import javafx.util.StringConverter;
+import javafx.util.converter.LocalDateStringConverter;
+import javafx.util.converter.TimeStringConverter;
 import model.logic.Singleton;
 import model.logic.SongsPlayer;
 import model.logic.data.Song;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -79,8 +85,17 @@ public class SongControlController implements Initializable {
         });
 
         songProgressSlider.maxProperty().bind(SongsPlayer.currentSong.durationProperty());
-        songProgressSlider.valueProperty().bindBidirectional(SongsPlayer.currentSong.progressProperty());
-        songCurrentTime.textProperty().bind(SongsPlayer.currentSong.progressProperty().asString());
+
+        IntegerProperty progress = SongsPlayer.currentSong.progressProperty();
+        songProgressSlider.valueProperty().bind(progress);
+        songProgressSlider.valueProperty().addListener((observableValue, number, newValue) -> {
+
+            songCurrentTime.textProperty().set( "%02d:%02d".formatted(
+                    (newValue.intValue() - (newValue.intValue() % 60)) / 60,
+                    newValue.intValue() % 60
+            ));
+        });
+
         songNameLbl.textProperty().bind(SongsPlayer.currentSong.titleProperty());
         songImageView.imageProperty().bind(SongsPlayer.currentSong.imageProperty());
         songAuthorLbl.textProperty().bind(SongsPlayer.currentSong.artistProperty());

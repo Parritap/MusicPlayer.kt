@@ -3,11 +3,12 @@ package model.logic;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.logic.data.Song;
+import model.logic.dataStructures.LinkedList;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 public class SongsSearcher {
 
@@ -22,8 +23,14 @@ public class SongsSearcher {
 
     public static List<Song> obtenerCancionesConCoincidencia(String nombre) {
 
-        return songsForSearch.stream().filter( song -> song.getTitle().toLowerCase().contains(nombre.toLowerCase())).toList();
+        List<Song> songsFound = new ArrayList<>();
+        for (int i = 0; i < songsForSearch.size(); i++){
+            Song song = songsForSearch.get(i);
+            if(song.getTitle().toLowerCase().contains(nombre.toLowerCase())) {
+                songsFound.add(song);
+            }
+        }
 
+        return songsFound;
     }
-
 }
