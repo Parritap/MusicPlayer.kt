@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class UserHandler {
 
-    Singleton singleton = Singleton.getInstance();
     private static final ArrayList<User> userList = Singleton.getInstance().getUserList();
 
 

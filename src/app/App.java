@@ -34,7 +34,7 @@ public class App extends Application {
     public void start(Stage stage) throws Exception {
         Singleton.getInstance().setApp(this);
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(Utils.pathLoginView));
+        loader.setLocation(getClass().getResource(Utils.pathRegisterView));
         Pane root = loader.load();
         Scene scene = new Scene(root);
         this.stage = stage;
@@ -75,5 +75,9 @@ public class App extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void setUserDataInMainView() {
+        
     }
 }

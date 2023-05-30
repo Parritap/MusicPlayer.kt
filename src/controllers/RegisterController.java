@@ -12,14 +12,16 @@ import model.logic.Exceptions.FieldException;
 import model.logic.Exceptions.ModelException;
 import model.logic.Singleton;
 import model.logic.UserHandler;
+import model.logic.Utils;
 import model.logic.data.User;
 
 import javax.swing.*;
 
 public class RegisterController implements Controller {
 
-    @FXML
-    private Button btnRegistrarse;
+
+    Singleton singleton = Singleton.getInstance();
+
 
     @FXML
     private TextField txtEmail;
@@ -49,7 +51,9 @@ public class RegisterController implements Controller {
 
         try {
             //Creamos el usuario y lo seteamos al Singleton.
-            Singleton.getInstance().setCurrentUser(UserHandler.createUser(name, email, password, nickname));
+            singleton.setCurrentUser(UserHandler.createUser(name, email, password, nickname));
+            if (singleton.getCurrentUser() !=null) singleton.getApp().loadScene(Utils.pathMainView);
+
 
         } catch (FieldException fieldException) {
             JOptionPane.showMessageDialog(null, "Existe algún campo vacío o nulo");

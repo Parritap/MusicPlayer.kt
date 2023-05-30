@@ -41,6 +41,7 @@ public class Singleton {
             System.out.println("Singleton instance created");
             INSTANCE.operatingSystem = OS.getOperatingSystem();
             INSTANCE.songsFound = SongsProducer.getProducts();
+            INSTANCE.userList = new ArrayList<>();
             INSTANCE.app = new App();
         }
         return INSTANCE;
