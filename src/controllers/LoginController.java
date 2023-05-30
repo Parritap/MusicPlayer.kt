@@ -9,9 +9,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import model.logic.Singleton;
 import model.logic.Utils;
 
 public class LoginController {
+
+    App app = Singleton.getInstance().getApp();
 
     @FXML
     private Label lblFaliedSesion;
@@ -33,7 +36,7 @@ public class LoginController {
 
     @FXML
     void login(ActionEvent event) {
-        App.loadScene(Utils.pathMainView);
+        app.loadScene(Utils.pathMainView);
     }
 
     @FXML

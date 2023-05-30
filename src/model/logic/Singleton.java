@@ -1,5 +1,6 @@
 package model.logic;
 
+import app.App;
 import lombok.Getter;
 import lombok.Setter;
 import model.logic.data.Song;
@@ -20,6 +21,7 @@ public class Singleton {
     private Clip audioClip;
     private  Song currentSong;
     private User currentUser;
+    private App app;
 
     private Singleton() {
     }
@@ -30,6 +32,7 @@ public class Singleton {
             System.out.println("Singleton instance created");
             INSTANCE.operatingSystem = OS.getOperatingSystem();
             INSTANCE.songsFound = SongsProducer.getProducts();
+            INSTANCE.app = new App();
         }
         return INSTANCE;
     }
