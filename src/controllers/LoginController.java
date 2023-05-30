@@ -1,6 +1,7 @@
 package controllers;
 
 import app.App;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -9,12 +10,12 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import model.logic.Controller;
 import model.logic.Singleton;
 import model.logic.Utils;
 
-public class LoginController {
+public class LoginController implements Controller {
 
-    App app = Singleton.getInstance().getApp();
 
     @FXML
     private Label lblFaliedSesion;
@@ -52,6 +53,12 @@ public class LoginController {
     @FXML
     void verifyPassword(KeyEvent event) {
 
+    }
+
+
+    @FXML
+    void goToRegisterView (ActionEvent event){
+        Singleton.getInstance().getApp().loadScene(Utils.pathRegisterView);
     }
 
 }

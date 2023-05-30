@@ -1,11 +1,13 @@
 package controllers;
 
+import app.App;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import model.logic.Controller;
 import model.logic.Exceptions.FieldException;
 import model.logic.Exceptions.ModelException;
 import model.logic.Singleton;
@@ -14,7 +16,7 @@ import model.logic.data.User;
 
 import javax.swing.*;
 
-public class RegisterController {
+public class RegisterController implements Controller {
 
     @FXML
     private Button btnRegistrarse;
@@ -34,7 +36,7 @@ public class RegisterController {
 
     @FXML
     void registrarUsuario(ActionEvent event) {
-        // Orden name > email > password > nickname
+        // Orden: name > email > password > nickname
         String name = txtName.getText();
         String email = txtEmail.getText();
         String password = txtPassword.getText();
@@ -54,8 +56,5 @@ public class RegisterController {
         } catch (ModelException e) {
             JOptionPane.showMessageDialog(null, "El usuario ya existe");
         }
-
-
     }
-
 }

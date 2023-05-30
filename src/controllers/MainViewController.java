@@ -1,5 +1,6 @@
 package controllers;
 
+import app.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -9,6 +10,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MainViewController implements Initializable {
+
+    private App application;
 
     @FXML
     private VBox centrePane;

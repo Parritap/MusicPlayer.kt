@@ -16,6 +16,7 @@ public class Utils {
 
     public static String pathMainView = "../view/mainView.fxml";
     public static String pathLoginView = "../view/Login.fxml";
+    public static String pathRegisterView = "../view/Register.fxml";
 
 
     /**

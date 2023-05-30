@@ -31,7 +31,7 @@
                         <Insets top="10.0" />
                     </VBox.margin>
                 </Line>
-                <AnchorPane  prefHeight="53.0" prefWidth="368.0" styleClass="facebook-style">
+                <AnchorPane prefHeight="53.0" prefWidth="368.0" styleClass="facebook-style">
                     <VBox.margin>
                         <Insets left="600.0" right="600.0" top="40.0" />
                     </VBox.margin>
@@ -44,7 +44,7 @@
                         <Label layoutX="177.0" layoutY="10.0" prefHeight="33.0" prefWidth="243.0" styleClass="iniciarSesion-label" text="Continuar con FACEBOOK" />
                     </children>
                 </AnchorPane>
-                <AnchorPane layoutX="610.0" layoutY="185.0"  prefHeight="53.0" prefWidth="368.0" styleClass="apple-style">
+                <AnchorPane layoutX="610.0" layoutY="185.0" prefHeight="53.0" prefWidth="368.0" styleClass="apple-style">
                     <children>
                         <ImageView fitHeight="34.0" fitWidth="41.0" layoutX="125.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -57,7 +57,7 @@
                         <Insets left="600.0" right="600.0" top="20.0" />
                     </VBox.margin>
                 </AnchorPane>
-                <AnchorPane layoutX="610.0" layoutY="258.0"  prefHeight="53.0" prefWidth="368.0" styleClass="google-style">
+                <AnchorPane layoutX="610.0" layoutY="258.0" prefHeight="53.0" prefWidth="368.0" styleClass="google-style">
                     <children>
                         <ImageView fitHeight="34.0" fitWidth="41.0" layoutX="125.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                             <image>
@@ -70,7 +70,7 @@
                         <Insets left="600.0" right="600.0" top="20.0" />
                     </VBox.margin>
                 </AnchorPane>
-                <AnchorPane layoutX="610.0" layoutY="331.0"  prefHeight="53.0" prefWidth="368.0" styleClass="google-style">
+                <AnchorPane layoutX="610.0" layoutY="331.0" prefHeight="53.0" prefWidth="368.0" styleClass="google-style">
                     <children>
                         <Label layoutX="119.0" layoutY="10.0" prefHeight="33.0" prefWidth="312.0" styleClass="google-style-font" text="Continuar con  número de telefono" />
                     </children>
@@ -189,18 +189,14 @@
                         <Insets left="750.0" top="30.0" />
                     </VBox.margin>
                 </Label>
-                <AnchorPane layoutX="610.0" layoutY="404.0" onMouseClicked="#signUp" prefHeight="53.0" prefWidth="368.0" styleClass="google-style">
-                    <children>
-                        <Label layoutX="152.0" layoutY="11.0" prefHeight="33.0" prefWidth="260.0" styleClass="registrarse-style-font" text="Registrate en Spotify">
-                            <font>
-                                <Font size="10.0" />
-                            </font>
-                        </Label>
-                    </children>
-                    <VBox.margin>
-                        <Insets left="600.0" right="600.0" top="30.0" />
-                    </VBox.margin>
-                </AnchorPane>
+            <Button mnemonicParsing="false" onAction="#goToRegisterView" prefHeight="48.0" prefWidth="300.0" styleClass="Button" text="REGISTRATE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="710.0" top="10.0" />
+               </VBox.margin>
+            </Button>
             </children>
         </VBox>
     </children>

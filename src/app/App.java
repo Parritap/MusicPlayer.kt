@@ -9,20 +9,24 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.Setter;
+import model.logic.Controller;
 import model.logic.Singleton;
 import model.logic.Utils;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 @Getter
 @Setter
 public class App extends Application {
 
-    private Stage currentStage;
+    private Scene scene;
+    private Stage stage;
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Singleton.getInstance();
         launch(args);
 
@@ -30,12 +34,13 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
+        Singleton.getInstance().setApp(this);
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(Utils.pathLoginView));
         Pane root = loader.load();
         Scene scene = new Scene(root);
-        this.currentStage = stage;
+        this.stage = stage;
+        this.scene = scene;
         stage.setTitle("Spotify");
         stage.setScene(scene);
         stage.setFullScreen(true);
@@ -56,21 +61,35 @@ public class App extends Application {
         }
     }
 
-    public void loadScene(String fxmlPath) {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(App.class.getResource(fxmlPath));
-        try {
-            Pane root = loader.load();
-            if (fxmlPath.equals(Utils.pathMainView)) agregarReproductor(root); //Agrega la barra de reproduccion que se encuentra en la parte inferior de la pantalla.
+    // public void loadScene(String fxmlPath) {
+    //     FXMLLoader loader = new FXMLLoader();
+    //     loader.setLocation(App.class.getResource(fxmlPath));
+    //     try {
+    //         Pane root = loader.load();
+    //         setearAppAControlador(loader); // -> Pasamos la instancia de App al siguente controlador.
+    //         if (fxmlPath.equals(Utils.pathMainView)) agregarReproductor(root); //Agrega la barra de reproduccion que se encuentra en la parte inferior de la pantalla.
+    //        // if (currentStage != null) currentStage.close();
+    //         Scene scene = new Scene(root);
+    //         Stage newStage = new Stage();
+    //         this.currentStage = newStage;
+    //         newStage.setScene(scene);
+    //         newStage.show();
+    //     } catch (IOException e) {
+    //         throw new RuntimeException(e);
+    //     }
+    // }
 
-            Scene scene = new Scene(root);
-            Stage newStage = new Stage();
-            this.currentStage = newStage;
-            newStage.setScene(scene);
-            newStage.show();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public void loadScene(String pathToView) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            fxmlLoader.setLocation(getClass().getResource(pathToView));
+            Pane root = fxmlLoader.load();
+            if (pathToView.equals(Utils.pathMainView)) agregarReproductor(root);
+            this.scene = new Scene(root);
+            stage.setScene(scene);
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
-
 }
