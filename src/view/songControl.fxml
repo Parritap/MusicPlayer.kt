@@ -73,8 +73,8 @@
             </HBox>
             <HBox spacing="10.0">
                <children>
-                  <Label fx:id="songCurrentTIme" text="00:00" textFill="WHITE" />
-                  <Slider fx:id="songProgressSlider" HBox.hgrow="ALWAYS" />
+                  <Label fx:id="songCurrentTime" text="00:00" textFill="WHITE" />
+                  <Slider fx:id="songProgressSlider" disable="true" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
          </children>

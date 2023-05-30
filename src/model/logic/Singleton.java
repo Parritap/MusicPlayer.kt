@@ -19,6 +19,15 @@ public class Singleton {
     private ArrayList<Song> songsFound;
     private ArrayList <User> userList;
     private Clip audioClip;
+
+    {
+        try {
+            audioClip = AudioSystem.getClip();
+        } catch (LineUnavailableException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private  Song currentSong;
     private User currentUser;
     private App app;

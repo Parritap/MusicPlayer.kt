@@ -16,7 +16,7 @@ import java.io.InputStream;
 @Getter
 @Setter
 
-public class Song {
+public class Song implements Comparable {
     private String path = "";
     private String title = "";
     private String year = "";
@@ -56,5 +56,13 @@ public class Song {
     }
 
 
+    @Override
+    public int compareTo(Object anotherSong) {
+        return this.toString().compareTo(((Song) anotherSong).toString());
+    }
 
+    @Override
+    public String toString(){
+        return this.title;
+    }
 }

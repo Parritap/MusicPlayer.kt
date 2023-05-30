@@ -1,27 +1,30 @@
 package model.logic;
 
+import javafx.application.Platform;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.concurrent.Task;
+import model.logic.bindingLayer.SongForBinding;
 import model.logic.data.Song;
+import model.logic.threads.SliderUptaderThread;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.File;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SongsPlayer {
 
-    public static Song currentSong;
-
-    //test
-    public static SimpleStringProperty name = new SimpleStringProperty();
-    public static SimpleDoubleProperty duration = new SimpleDoubleProperty();
+    public static SongForBinding currentSong  = new SongForBinding();
+    private static SliderUptaderThread sliderUptader;
 
     public static void playSong(Song song) {
 
-        currentSong = song;
+        if (sliderUptader != null) sliderUptader.stop();
+
         Clip audioClip = Singleton.getInstance().getAudioClip();
 
         if (song != null) {
@@ -41,6 +44,10 @@ public class SongsPlayer {
 
             Singleton.getInstance().setAudioCLip(audioClip);
         }
+
+        currentSong.setearCancion(song);
+        sliderUptader = new SliderUptaderThread("slider uptader", currentSong);
+
     }
 
     public static void pauseCurrentSong() {
@@ -48,7 +55,12 @@ public class SongsPlayer {
         Optional.of(currentSong).ifPresent(song -> {
             Clip audioClip = Singleton.getInstance().getAudioClip();
             Optional.of(audioClip).ifPresent((clip -> {
-                clip.stop();
+                Optional.of(sliderUptader).ifPresent(uptader -> {
+
+                    uptader.interrupt();
+                    clip.stop();
+
+                });
             }));
         });
     }
@@ -58,15 +70,13 @@ public class SongsPlayer {
         Optional.of(currentSong).ifPresent(song -> {
             Clip audioClip = Singleton.getInstance().getAudioClip();
             Optional.of(audioClip).ifPresent((clip -> {
-                clip.start();
+                Optional.of(sliderUptader).ifPresent(uptader -> {
+
+                    uptader.contin();
+                    clip.start();
+
+                });
             }));
         });
     }
-
-    //test
-    public static void testMethod(){
-        name.setValue("hola mundo");
-    }
-
-    public static void secondTestMethod() { duration.setValue(10); }
 }
